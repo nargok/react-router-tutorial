@@ -31,6 +31,7 @@ export default function Contact() {
           ) : (
             <i>No Name</i>
           )}
+          <Favorite contact={contact} />
         </h1>
 
         {contact.twitter ? (
