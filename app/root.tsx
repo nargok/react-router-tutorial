@@ -17,7 +17,9 @@ export async function clientLoader() {
   return { contacts }
 }
 
-export default function App({ loaderData }) {
+export default function App({
+   loaderData,
+} : Route.ComponentProps) {
   const { contacts } = loaderData;
 
   return (
@@ -118,4 +120,13 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
       )}
     </main>
   );
+}
+
+export function HydrateFallback() {
+  return (
+    <div id="loading-splash">
+      <div id="loading-splash-spinner" />
+      <p>Loading...</p>
+    </div>
+  )
 }
