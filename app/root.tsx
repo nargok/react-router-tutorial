@@ -1,6 +1,4 @@
 import {
-  Form,
-  Link,
   Outlet,
   Scripts,
   ScrollRestoration,
@@ -9,13 +7,6 @@ import {
 import type { Route } from "./+types/root";
 
 import appStylesHref from "./app.css?url";
-
-import { getContacts } from "./data";
-
-export async function clientLoader() {
-  const contacts = await await getContacts()
-  return { contacts }
-}
 
 export default function App() {
   return <Outlet />
