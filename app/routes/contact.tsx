@@ -1,4 +1,4 @@
-import { Form } from 'react-router';
+import { Form, Link } from 'react-router';
 
 import type { Route } from './+types/contact';
 import { getContact } from '../data';
@@ -44,26 +44,32 @@ export default function Contact({
             <a href={`https://twitter.com/${contact.twitter}`}>{contact.twitter}</a>
           </p>
         ) : null}
-      </div>
+        
+        { contact.notes ? <p>{contact.notes}</p> : null}
 
-      <div>
-        <Form
-          action="destroy"
-          method="post"
-          onSubmit={(event) => {
-            const response = confirm(
-              "Please confirm you want to delete this record."
-            );
-            if (!response) {
-              event.preventDefault();
-            }
-          }}
-        >
-          <button type="submit">Delete</button>
-        </Form>
+        <div>
+          <Form
+            action="destroy"
+            method="post"
+            onSubmit={(event) => {
+              const response = confirm(
+                "Please confirm you want to delete this record."
+              );
+              if (!response) {
+                event.preventDefault();
+              }
+            }}
+          >
+            <button type="submit">Delete</button>
+          </Form>
+          <button>
+            <Link to={`/contacts/${contact.id}/edit`}>
+              Edit
+            </Link>
+          </button>
+        </div>
       </div>
     </div>
-
   )
 }
 
