@@ -17,6 +17,7 @@ export default function SidebarLayout({ loaderData }: Route.ComponentProps) {
           <Link to="about">React Router Contacts</Link>
         </h1>
         <div>
+          {/* biome-ignore lint/a11y/useSemanticElements: <explanation> */}
           <Form id="search-form" role="search">
             <input
               aria-label="Search contacts"

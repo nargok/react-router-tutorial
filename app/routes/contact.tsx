@@ -58,7 +58,7 @@ export default function Contact({ loaderData }: Route.ComponentProps) {
           >
             <button type="submit">Delete</button>
           </Form>
-          <button>
+          <button type="button">
             <Link to={`/contacts/${contact.id}/edit`}>Edit</Link>
           </button>
         </div>
@@ -79,6 +79,7 @@ function Favorite({
       <button
         aria-label={favorite ? 'Remove from favorites' : 'Add to favorites'}
         name="favorite"
+        type="button"
         value={favorite ? 'false' : 'true'}
       >
         {favorite ? '★' : '☆'}

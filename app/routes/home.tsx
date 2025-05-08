@@ -3,7 +3,7 @@ export default function Home() {
     <p id="inex-page">
       This is the home page.
       <br />
-      <a href="https://reactrouter.com" target="_blank" rel="noreferrer">
+      <a href="https://reactrouter.com" target="_blank" rel="noreferrer noopener">
         Check out the docs at reactrouter.com
       </a>
     </p>
