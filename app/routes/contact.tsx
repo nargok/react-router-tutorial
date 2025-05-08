@@ -1,11 +1,10 @@
-import React from 'react';
 import { Form } from 'react-router';
 
 import type { Route } from './+types/contact';
 import { getContact } from '../data';
 import type { ContactRecord } from '../data';
 
-export async function loader({params}: Route.LoaderProps) {
+export async function loader({params}: Route.LoaderArgs) {
   const contact = await getContact(params.contactId);
   if (!contact) {
     throw new Response("Not Found", { status: 404 });
