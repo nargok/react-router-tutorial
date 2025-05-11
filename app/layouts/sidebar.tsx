@@ -30,8 +30,17 @@ export default function SidebarLayout({ loaderData }: Route.ComponentProps) {
           <Link to="about">React Router Contacts</Link>
         </h1>
         <div>
-          {/* biome-ignore lint/a11y/useSemanticElements: <explanation> */}
-          <Form id="search-form" onChange={(event) => submit(event.currentTarget)} role="search">
+          <Form
+            id="search-form"
+            // biome-ignore lint/a11y/useSemanticElements: <explanation>
+            role="search"
+            onChange={(event) => {
+              const isFirstSearch = q === null;
+              submit(event.currentTarget, {
+                replace: !isFirstSearch,
+              });
+            }}
+          >
             <input
               aria-label="Search contacts"
               className={searching ? 'loading' : ''}
